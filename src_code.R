@@ -171,5 +171,8 @@ all_trips_v2 %>%
   ggplot(aes(x=weekday,y=average_duration,fill=member_casual)) + geom_col(position = "dodge")
 
 
+#assigning a new name and exporting the dataframe we generated earlier for further analysis
+counts <- aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN = mean)
 
+write_csv(counts, file = '/Users/namrathasmacbookpro/Desktop/JOB 2023/Case Study/dataset/avg_ride_length.csv')
 
