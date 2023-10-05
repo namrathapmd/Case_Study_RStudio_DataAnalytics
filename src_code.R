@@ -156,7 +156,7 @@ all_trips_v2 %>%
 
 #GGPLOT- Visualize the above by rider type for TOTAL NO. OF RIDES
 all_trips_v2 %>% 
-  mutate(weekday = wday(started_at,label=TRUE)) %>%  
+  mutate(weekday = wday(started_at,label=TRUE)) %>%  #label=TRUE makes returns the weekday in characters
   group_by(member_casual,weekday) %>% 
   summarize(number_of_rides = n(),average_duration=mean(ride_length)) %>% 
   arrange(member_casual,weekday) %>% 
